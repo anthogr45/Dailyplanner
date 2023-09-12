@@ -1,5 +1,4 @@
 var wdDate = $('#currentDay');
-var btnDateSearch = $('#btnDate');
 
 var today = dayjs().format('ddd, MMM D, YYYY h:mm A');
 var todaysDate = dayjs().format('DD/MM/YYYY');
@@ -8,16 +7,9 @@ console.log(todaysDate);
 $(wdDate).text(today);
 
 var clockTime = dayjs().format('HH');
-
 var currentTime = parseInt(clockTime);
 
-// var typee = typeof currentTime;
 console.log(currentTime);
-
-// if (currentTime < 4) {
-// console.log(currentTime);
-// }
-// blockColor ();
 
 
 var block9AM = $('#9');
@@ -43,72 +35,43 @@ var blockBtn16 = $('#btn16')
 var blockBtn17 = $('#btn17')
 
 
+// var block9AMTXT = $('#txt9');
+// var block10AMTXT = $('#txt10');
+// var block11AMTXT = $('#txt11');
+// var block12PMTXT = $('#txt12');
+// var block12PMTXT = $('#txt12');
 
 
 
+// var block14 = 14;
+// var block2PMTXT = $('#txt2');
+// var block2PMBtn = $('btn14');
 
-var block9AMTXT = $('#txt9');
+// var block15 = 15;
+// var block3PMTXT = $('#txt3');
+// var block3PMBtn = $('btn15');
 
+// var block16 = 16;
+// var block4PMTXT = $('#txt4');
+// var block4PMBtn = $('btn16');
 
-var block10 = 10;
-var block10AMTXT = $('#txt10');
-var block10AMBtn = $('btn10');
-
-
-var block11 = 11;
-var block11AMTXT = $('#txt11');
-var block11AMBtn = $('btn11');
-
-
-var block12 = 12;
-var block12PMTXT = $('#txt12');
-var block12PMBtn = $('btn12');
-
-
-var block13 = 13;
-var block12PMTXT = $('#txt12');
-var block12PMBtn = $('btn13');
-
-
-var block14 = 14;
-var block2PMTXT = $('#txt2');
-var block2PMBtn = $('btn14');
-
-var block15 = 15;
-var block3PMTXT = $('#txt3');
-var block3PMBtn = $('btn15');
-
-var block16 = 16;
-var block4PMTXT = $('#txt4');
-var block4PMBtn = $('btn16');
-
-var block17 = 17;
-var block5PMTXT = $('#txt5');
-var block4PMBtn = $('btn17');
+// var block17 = 17;
+// var block5PMTXT = $('#txt5');
+// var block4PMBtn = $('btn17');
 
 
 var idnum = 9 
 var hashTag = '#'
 var blockID =  0
 var timeBlock = ''
-// var timeCheck = currentTime;
 
-//  currentTime = 16;
-
-// var x = 9;
-// var blockID = hashTag.concat(x);
-//  var timeBlock = $(blockID);
-//  console.log(timeBlock)
-
-//  timeBlock.attr('class', 'row time-block future' );
 
  console.log(currentTime)
 
 function  colorBlock () {
-  // console.log(idnum)
+ 
   if (currentTime < idnum) {
-    console.log(currentTime)
-
+    
     for (var i = 9; i < 17 ; i++) {
 
       blockID = hashTag.concat(i);
@@ -220,7 +183,7 @@ function  colorBlock () {
       console.log(timeBlock)
     }
   } else if (currentTime === 16) {
-    console.log("check 16")
+    
     block9AM.attr('class', 'row time-block past');
     block10AM.attr('class', 'row time-block past');
     block11AM.attr('class', 'row time-block past');
@@ -230,7 +193,7 @@ function  colorBlock () {
     block3PM.attr('class', 'row time-block past');
     block4PM.attr('class', 'row time-block present');
 
-    for (i = 16; i < 17 ; i++) {
+    for (i = 17; i < 17 ; i++) {
 
       blockID = hashTag.concat(i);
       timeBlock = $(blockID);
@@ -429,69 +392,200 @@ blockBtn17.on('click', function(event) {
 
 var getDataObj = {};
 
-
-function getData () {
-
  
-
-  getDataObj = JSON.parse(localStorage.getItem('eventSave9'))
+  function getdataBox9 () {
+    getDataObj = JSON.parse(localStorage.getItem('eventSave9'))
   
     if ((getDataObj.eventTXT) !== null ) {
         $("#txt9").text (getDataObj.eventTXT);
         console.log("Got data");
-    } else {
-        console.log('null');
+    } 
+      if (getDataObj === null ) {
+        console.log('null');  
+    
+        var noData = "No Event Data Saved"
+        var tempID = "9"
+        var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
+        localStorage.setItem('eventSave9', JSON.stringify(eventSave))
+    }
+    return;
   }
 
-  // getDataObj = JSON.parse(localStorage.getItem('eventSave10'))
-  // getDataObj = JSON.parse(JSON.parse(localStorage.getItem('eventSave10'))?.user || "{}")?.currentUser?.accessToken
-  
-  // $("#txt10").text (getDataObj.eventTXT);
-  // if ((getDataObj.eventTXT) !== null ) {
-  //   console.log('NO null');  
-  //   $("#txt10").text (getDataObj.eventTXT);
-  //     // console.log("Got data");
-  // // } else {
-  //     console.log('null');
-  } 
+  function getdataBox10 () {
 
-  getDataObj = JSON.parse(JSON.parse(localStorage.getItem('eventSave11'))?.user || "{}")?.currentUser?.accessToken
+    getDataObj = JSON.parse(localStorage.getItem('eventSave10'))
+    
+    if ((getDataObj) !== null ) {
+      $("#txt10").text (getDataObj.eventTXT);
+      console.log('NO null');  
+      // $("#txt10").text (getDataObj.eventTXT);
+    }  
+        
+    if (getDataObj === null ) {
+      console.log('null');  
   
-  if (getDataObj == null ) {
-    console.log('null');  
-
-    var noData = "No Event Data Saved"
-    var tempID = "10"
-    var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
-    localStorage.setItem('eventSave11', JSON.stringify(eventSave))
-   // $("#txt11").text (getDataObj.eventTXT);
-      // console.log("Got data");
-  // } else {
-      console.log('null');
-  } else if (getDataObj !== null ) {
-    console.log('NO null');  
-    $("#txt10").text (getDataObj.eventTXT);
+      var noData = "No Event Data Saved"
+      var tempID = "10"
+      var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
+      localStorage.setItem('eventSave10', JSON.stringify(eventSave))
+    } 
+    return;
   }
 
-
-
-
-
-  // $("#txt9").text (getDataObj.eventTXT);
-  // console.log("Got data");
-
-
-
-
-
-
-
+  function getdataBox11 () {
+    getDataObj = JSON.parse(localStorage.getItem('eventSave11'))
   
+    if ((getDataObj) !== null ) {
+        $("#txt11").text (getDataObj.eventTXT);
+        console.log("Got data");
+    } 
+      if (getDataObj === null ) {
+        console.log('null');  
+    
+        var noData = "No Event Data Saved"
+        var tempID = "11"
+        var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
+        localStorage.setItem('eventSave11', JSON.stringify(eventSave))
+    }
+    return;
+  }
 
+  function getdataBox12 () {
+
+    getDataObj = JSON.parse(localStorage.getItem('eventSave12'))
+
+
+    if ((getDataObj) !== null ) {
+      console.log('NO null');  
+      $("#txt12").text (getDataObj.eventTXT);
+    }  
+  
+  
+    if (getDataObj === null ) {
+      console.log('null');  
+
+      var noData = "No Event Data Saved"
+      var tempID = "12"
+      var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
+      localStorage.setItem('eventSave12', JSON.stringify(eventSave))
+    } 
+    return;
+  }
+
+  function getdataBox13 () {
+
+    getDataObj = JSON.parse(localStorage.getItem('eventSave13'))
+
+
+    if (getDataObj === null ) {
+      console.log('null');  
+            var noData = "No Event Data Saved"
+      var tempID = "13"
+      var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
+      localStorage.setItem('eventSave13', JSON.stringify(eventSave))
+    } 
+    
+    if ((getDataObj) !== null ) {
+      console.log('NO null');  
+      $("#txt13").text (getDataObj.eventTXT);
+    }  
+  
+  
+  
+    return;
+  }
+
+  function getdataBox14 () {
+
+    getDataObj = JSON.parse(localStorage.getItem('eventSave14'))
+
+    if ((getDataObj) !== null ) {
+      console.log('NO null');  
+      $("#txt14").text (getDataObj.eventTXT);
+    }  
+    if (getDataObj === null ) {
+      console.log('null');  
+
+      var noData = "No Event Data Saved"
+      var tempID = "14"
+      var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
+      localStorage.setItem('eventSave14', JSON.stringify(eventSave))
+    } 
+    return;
+  }
+
+  function getdataBox15 () {
+
+    getDataObj = JSON.parse(localStorage.getItem('eventSave15'))
+
+    if ((getDataObj) !== null ) {
+      console.log('NO null');  
+      $("#txt15").text (getDataObj.eventTXT);
+    }  
+    if (getDataObj === null ) {
+      console.log('null');  
+
+      var noData = "No Event Data Saved"
+      var tempID = "15"
+      var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
+      localStorage.setItem('eventSave15', JSON.stringify(eventSave))
+    } 
+    return;
+  }
+
+  function getdataBox16 () {
+
+    getDataObj = JSON.parse(localStorage.getItem('eventSave16'))
+
+    if ((getDataObj) !== null ) {
+      console.log('NO null');  
+      $("#txt16").text (getDataObj.eventTXT);
+    }  
+    if (getDataObj === null ) {
+      console.log('null');  
+
+      var noData = "No Event Data Saved"
+      var tempID = "16"
+      var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
+      localStorage.setItem('eventSave16', JSON.stringify(eventSave))
+    } 
+    return;
+  }
+
+  function getdataBox17 () {
+
+    getDataObj = JSON.parse(localStorage.getItem('eventSave11'))
+
+    if ((getDataObj) !== null ) {
+      console.log('NO null');  
+      $("#txt17").text (getDataObj.eventTXT);
+    }  
+    if (getDataObj === null ) {
+      console.log('null');  
+
+      var noData = "No Event Data Saved"
+      var tempID = "17"
+      var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
+      localStorage.setItem('eventSave17', JSON.stringify(eventSave))
+    } 
+    return;
+  }
+  getdataBox9 ()
+  getdataBox10 ()
+  getdataBox11 ()
+  getdataBox12 ()
+  getdataBox13 ()
+  getdataBox14 ()
+  getdataBox15 ()
+  getdataBox16 ()
+  getdataBox17 ()
+ 
+  // return;
+// }
 
 
 // // $(document).ready(function() {
- getData ()
+// getData ()
 
 colorBlock ();
 
