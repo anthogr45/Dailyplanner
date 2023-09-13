@@ -189,8 +189,7 @@ blockBtn9.on('click', function(event) { //Save button click event. Gathers the d
 
     var eventSave = {Date:todaysDate, eventBoxID:boxID, eventTXT:textData};
     localStorage.setItem('eventSave9', JSON.stringify(eventSave)) //Data (Date, Event clock ID, event text) is stored as an object in the local storage
-
-    alert('Hello World');
+   
     
 });
 
@@ -269,8 +268,7 @@ blockBtn16.on('click', function(event) {
 
   var eventSave = { todaysDate, eventBoxID:boxID, eventTXT:textData};
   localStorage.setItem('eventSave16', JSON.stringify(eventSave))
-  console.log(textData);
-
+ 
 });
 
 blockBtn17.on('click', function(event) {
@@ -445,7 +443,7 @@ function getdataBox9 () {
     } 
     return;
   }
-  
+
   getdataBox9 ()
   getdataBox10 ()
   getdataBox11 ()
