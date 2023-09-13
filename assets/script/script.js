@@ -35,11 +35,12 @@ var blockID =  0
 var timeBlock = ''
 
 
+
 function  colorBlock () {
  
   if (currentTime < idnum) {  // Changes the class type of the Time Event Boxes to be Future if the current time is ealier than 9am
     
-    for (var i = 9; i < 17 ; i++) {  
+    for (var i = 9; i < 18 ; i++) {  
 
       blockID = hashTag.concat(i);
       timeBlock = $(blockID);
@@ -169,6 +170,18 @@ function  colorBlock () {
     block3PM.attr('class', 'row time-block past');
     block4PM.attr('class', 'row time-block past');
     block5PM.attr('class', 'row time-block present');
+   
+  }else if (currentTime > 17) {
+    
+    block9AM.attr('class', 'row time-block past');
+    block10AM.attr('class', 'row time-block past');
+    block11AM.attr('class', 'row time-block past');
+    block12PM.attr('class', 'row time-block past');
+    block1PM.attr('class', 'row time-block past');
+    block2PM.attr('class', 'row time-block past');
+    block3PM.attr('class', 'row time-block past');
+    block4PM.attr('class', 'row time-block past');
+    block5PM.attr('class', 'row time-block past');
    
   }
  
