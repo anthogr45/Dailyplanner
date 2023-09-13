@@ -32,7 +32,8 @@ Home Screen layout is available in the repository path:
 ## Credits
 
 - Lecturer Gurneesh Singh for teaching us the module.
-- Class students for their collaborative support in the slack chat.
+- Class collegues for their collaborative support in the slack chat.
+- Tutor Dru Sanchez and Andres Jimenez for the knowledge sharing.
   
 ## Features Links
 
