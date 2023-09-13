@@ -289,7 +289,7 @@ var getDataObj = {};
 
 // Get the saved data from the local storage to each event block. 
 //Each individual Function will check for Null fields
- // If the local storage field are NULL. THe function will save a text record ("No saved event information") to each NULl time boxes.
+ // If the local storage field are NULL. THe function will save a text record ("Erase this and type your event information here and save") to each NULl time boxes.
 function getdataBox9 () {
   getDataObj = JSON.parse(localStorage.getItem('eventSave9'))
   
@@ -298,7 +298,7 @@ function getdataBox9 () {
       
   } 
   if (getDataObj === null ) {
-      var noData = "No saved event information"
+      var noData = "Erase this and type your event information here and save"
       var tempID = "9"
       var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
       localStorage.setItem('eventSave9', JSON.stringify(eventSave))
@@ -317,7 +317,7 @@ function getdataBox9 () {
         
     if (getDataObj === null ) {
         
-      var noData = "No saved event information"
+      var noData = "Erase this and type your event information here and save"
       var tempID = "10"
       var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
       localStorage.setItem('eventSave10', JSON.stringify(eventSave))
@@ -333,7 +333,7 @@ function getdataBox9 () {
       
     } 
     if (getDataObj === null ) {
-        var noData = "No saved event information"
+        var noData = "Erase this and type your event information here and save"
         var tempID = "11"
         var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
         localStorage.setItem('eventSave11', JSON.stringify(eventSave))
@@ -353,7 +353,7 @@ function getdataBox9 () {
     if (getDataObj === null ) {
       console.log('null');  
 
-      var noData = "No saved event information"
+      var noData = "Erase this and type your event information here and save"
       var tempID = "12"
       var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
       localStorage.setItem('eventSave12', JSON.stringify(eventSave))
@@ -368,7 +368,7 @@ function getdataBox9 () {
 
     if (getDataObj === null ) {
       console.log('null');  
-            var noData = "No saved event information"
+            var noData = "Erase this and type your event information here and save"
       var tempID = "13"
       var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
       localStorage.setItem('eventSave13', JSON.stringify(eventSave))
@@ -389,7 +389,7 @@ function getdataBox9 () {
       $("#txt14").text (getDataObj.eventTXT);
     }  
     if (getDataObj === null ) {
-      var noData = "No saved event information"
+      var noData = "Erase this and type your event information here and save"
       var tempID = "14"
       var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
       localStorage.setItem('eventSave14', JSON.stringify(eventSave))
@@ -406,7 +406,7 @@ function getdataBox9 () {
       $("#txt15").text (getDataObj.eventTXT);
     }  
     if (getDataObj === null ) {
-      var noData = "No saved event information"
+      var noData = "Erase this and type your event information here and save"
       var tempID = "15"
       var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
       localStorage.setItem('eventSave15', JSON.stringify(eventSave))
@@ -422,7 +422,7 @@ function getdataBox9 () {
       $("#txt16").text (getDataObj.eventTXT);
     }  
     if (getDataObj === null ) {
-      var noData = "No saved event information"
+      var noData = "Erase this and type your event information here and save"
       var tempID = "16"
       var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
       localStorage.setItem('eventSave16', JSON.stringify(eventSave))
@@ -438,13 +438,14 @@ function getdataBox9 () {
       $("#txt17").text (getDataObj.eventTXT);
     }  
     if (getDataObj === null ) {
-      var noData = "No saved event information"
+      var noData = "Erase this and type your event information here and save"
       var tempID = "17"
       var eventSave = { todaysDate, eventBoxID:tempID, eventTXT:noData};
       localStorage.setItem('eventSave17', JSON.stringify(eventSave))
     } 
     return;
   }
+  
   getdataBox9 ()
   getdataBox10 ()
   getdataBox11 ()
@@ -460,35 +461,3 @@ function getdataBox9 () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
